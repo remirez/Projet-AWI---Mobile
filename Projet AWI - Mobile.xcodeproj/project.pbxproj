@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		104D8030240573AF00001437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D802F240573AF00001437 /* AppDelegate.swift */; };
 		104D8032240573AF00001437 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D8031240573AF00001437 /* SceneDelegate.swift */; };
-		104D8034240573AF00001437 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D8033240573AF00001437 /* ContentView.swift */; };
+		104D8034240573AF00001437 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D8033240573AF00001437 /* App.swift */; };
 		104D8036240573B100001437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 104D8035240573B100001437 /* Assets.xcassets */; };
 		104D8039240573B100001437 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 104D8038240573B100001437 /* Preview Assets.xcassets */; };
 		104D803C240573B100001437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 104D803A240573B100001437 /* LaunchScreen.storyboard */; };
 		104D8047240573B100001437 /* Projet_AWI___MobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D8046240573B100001437 /* Projet_AWI___MobileTests.swift */; };
 		104D8052240573B100001437 /* Projet_AWI___MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D8051240573B100001437 /* Projet_AWI___MobileUITests.swift */; };
+		618D1A7A24058B9B009D311D /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618D1A7924058B9B009D311D /* Logo.swift */; };
+		618D1A7F240590A7009D311D /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618D1A7E240590A7009D311D /* Form.swift */; };
+		618D1A822405D0BE009D311D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618D1A812405D0BE009D311D /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,7 @@
 		104D802C240573AF00001437 /* Projet AWI - Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projet AWI - Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		104D802F240573AF00001437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		104D8031240573AF00001437 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		104D8033240573AF00001437 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		104D8033240573AF00001437 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		104D8035240573B100001437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		104D8038240573B100001437 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		104D803B240573B100001437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,10 @@
 		104D804D240573B100001437 /* Projet AWI - MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Projet AWI - MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		104D8051240573B100001437 /* Projet_AWI___MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projet_AWI___MobileUITests.swift"; sourceTree = "<group>"; };
 		104D8053240573B100001437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		618D1A7924058B9B009D311D /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		618D1A7D24058E88009D311D /* Flame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flame.jpg; sourceTree = "<group>"; };
+		618D1A7E240590A7009D311D /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
+		618D1A812405D0BE009D311D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +106,13 @@
 		104D802E240573AF00001437 /* Projet AWI - Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				618D1A802405D07B009D311D /* Register */,
+				618D1A7824058B6E009D311D /* Login */,
 				104D802F240573AF00001437 /* AppDelegate.swift */,
 				104D8031240573AF00001437 /* SceneDelegate.swift */,
-				104D8033240573AF00001437 /* ContentView.swift */,
+				104D8033240573AF00001437 /* App.swift */,
 				104D8035240573B100001437 /* Assets.xcassets */,
+				618D1A7D24058E88009D311D /* Flame.jpg */,
 				104D803A240573B100001437 /* LaunchScreen.storyboard */,
 				104D803D240573B100001437 /* Info.plist */,
 				104D8037240573B100001437 /* Preview Content */,
@@ -134,6 +144,23 @@
 				104D8053240573B100001437 /* Info.plist */,
 			);
 			path = "Projet AWI - MobileUITests";
+			sourceTree = "<group>";
+		};
+		618D1A7824058B6E009D311D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				618D1A7924058B9B009D311D /* Logo.swift */,
+				618D1A7E240590A7009D311D /* Form.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		618D1A802405D07B009D311D /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				618D1A812405D0BE009D311D /* RegisterView.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +296,10 @@
 			files = (
 				104D8030240573AF00001437 /* AppDelegate.swift in Sources */,
 				104D8032240573AF00001437 /* SceneDelegate.swift in Sources */,
-				104D8034240573AF00001437 /* ContentView.swift in Sources */,
+				618D1A7F240590A7009D311D /* Form.swift in Sources */,
+				618D1A822405D0BE009D311D /* RegisterView.swift in Sources */,
+				618D1A7A24058B9B009D311D /* Logo.swift in Sources */,
+				104D8034240573AF00001437 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

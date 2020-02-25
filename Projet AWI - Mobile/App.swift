@@ -8,14 +8,21 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct App: View {
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView{
+            VStack{
+                Logo(bottom: 30)
+                Form(pseudo: "", mdp: "", topButton: 20)
+            }
+        }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        App()
     }
 }
