@@ -12,6 +12,7 @@ struct Form: View {
     @State var pseudo: String
     @State var mdp: String
     var topButton : CGFloat
+    var samplePosts = [Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: ""),Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: ""),Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: "")]
     
     var body: some View {
         VStack{
@@ -35,27 +36,27 @@ struct Form: View {
                 
             }.padding(.bottom, topButton)
             
-            Button(action: {
-                print("Pseudo : \(self.pseudo) et MDP : \(self.mdp)")
-                
-                // A completer avec la logique de notre App
-                
-            }) {
-                Text("Connexion").foregroundColor(Color.white)
+            NavigationLink(destination: AcceuilView(rechercher: "", posts: samplePosts)){
+                Text("Connexion").foregroundColor(Color.white).padding(40.0)
+                .frame(height: 50.0).background(Color.green).cornerRadius(20)
             }
-            .padding(40.0)
-            .frame(height: 50.0).background(Color.green).cornerRadius(20)
             
             NavigationLink(destination: RegisterView(pseudo: "", mdp: "", email: "", cmdp: "", topButton: 15)){
                 Text("Pas de compte ? Inscrivez-vous").foregroundColor(Color.blue)
             }.padding(.top, 10)
-            
             Spacer()
         }
         .padding(.horizontal, 20.0)
         
-        
     }
+}
+
+func getListeDesPosts() -> [Post] {
+    
+    // Cette fonction doit extraire la liste des posts de la base de données et la retourner
+    // Cette fonstion doit etre completer
+    
+    return [Post(id: 0, texte: "", createur: "")]
 }
 
 struct Form_Previews: PreviewProvider {
