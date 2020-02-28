@@ -9,21 +9,27 @@
 import SwiftUI
 
 struct AcceuilView: View {
-    @State var rechercher : String
-    var posts : [Post]
+    var samplePosts = [Post(id: 0, texte: "Moi",createur: "",commentaires: []),
+    Post(id: 0, texte: "Toi",createur: "",commentaires: []),
+    Post(id: 0, texte: "Moi",createur: "",commentaires: []),
+    Post(id: 0, texte: "Toi",createur: "",commentaires: []),
+    Post(id: 0, texte: "Moi",createur: "",commentaires: []),
+    Post(id: 0, texte: "Toi",createur: "",commentaires: [])]
+    
     var body: some View {
-            VStack{
-                TextField("Rechercher", text: $rechercher).frame(height: 40)
-                List(posts) { post in
-                    PostView(post: post).padding(.top, 5)
-                }
-                Spacer()
-            }.padding(.horizontal, 20).navigationBarBackButtonHidden(true).navigationBarTitle(Text("Our App"))
+        TabView {
+            ListPostView(samplePosts: samplePosts).tag(1)
+        
+            RechercherView(rechercher: "").tag(2)
+            
+            ProfileView().tag(3)
+            
+        }.navigationBarTitle(Text("Our App"), displayMode: .inline).navigationBarBackButtonHidden(true)
     }
 }
 
 struct AcceuilView_Previews: PreviewProvider {
     static var previews: some View {
-        AcceuilView(rechercher: "", posts:[Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: "")])
+        AcceuilView()
     }
 }
