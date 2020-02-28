@@ -10,25 +10,33 @@ import SwiftUI
 
 struct PostView: View {
     var post : Post
+    /*
+    var imageGauche : View {
+        get{
+            
+        }
+    }
+    */
     var body: some View {
         VStack{
            HStack(alignment: .top){
             Image("Flame").resizable().frame(width: 50.0, height: 50.0).cornerRadius(20)
             Text("Moundi Mazou Garirajhkjqshdkjhqskjhdkqljshdkqjhqsjdhlqksjhdlkqjshdkjqshdlkqsjhdklqjshdkqjshdklqsjhdkqlsjhdkqlsjhdkjqshdjkqs    \(post.texte) ")
             }
+            
             HStack(){
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("J'aime").foregroundColor(Color.blue)
+                    Image(systemName: "hand.thumbsup")
                 }
                 Spacer()
-                NavigationLink(destination: CommentaireView()){
-                    Text("Commenter").foregroundColor(Color.blue)
-                }
                 
+                NavigationLink(destination: CommentaireView(post: post)){
+                    Image(systemName: "message.circle")
+                }
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Signaler").foregroundColor(Color.blue)
+                    Image(systemName: "exclamationmark.triangle")
                 }
                 Spacer()
             }
@@ -38,6 +46,6 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(post: Post(id: 0, texte: "MOI",createur: ""))
+        PostView(post: Post(id: 0, texte: "MOI",createur: "", commentaires:[]))
     }
 }

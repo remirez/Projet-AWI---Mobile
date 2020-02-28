@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct CommentaireView: View {
+    @State var post: Post
     var body: some View {
-        Text("Vue commentaire")
+        VStack{
+            PostView(post: post)
+        }
     }
 }
 
 struct CommentaireView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentaireView()
+        CommentaireView(post: Post(id: 0, texte: "MOI",createur: "", commentaires: ["jkfhskjdfh", "qdqsdqsd", "sdfsdf", "sqjhgfjksq"]))
     }
 }

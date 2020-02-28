@@ -12,7 +12,6 @@ struct Form: View {
     @State var pseudo: String
     @State var mdp: String
     var topButton : CGFloat
-    var samplePosts = [Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: ""),Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: ""),Post(id: 0, texte: "Moi",createur: ""), Post(id: 0, texte: "Toi",createur: "")]
     
     var body: some View {
         VStack{
@@ -36,10 +35,9 @@ struct Form: View {
                 
             }.padding(.bottom, topButton)
             
-            NavigationLink(destination: AcceuilView(rechercher: "", posts: samplePosts)){
-                Text("Connexion").foregroundColor(Color.white).padding(40.0)
+            NavigationLink(destination: AcceuilView()){ Text("Connexion").foregroundColor(Color.white).padding(40.0)
                 .frame(height: 50.0).background(Color.green).cornerRadius(20)
-            }
+                }
             
             NavigationLink(destination: RegisterView(pseudo: "", mdp: "", email: "", cmdp: "", topButton: 15)){
                 Text("Pas de compte ? Inscrivez-vous").foregroundColor(Color.blue)
@@ -56,7 +54,7 @@ func getListeDesPosts() -> [Post] {
     // Cette fonction doit extraire la liste des posts de la base de données et la retourner
     // Cette fonstion doit etre completer
     
-    return [Post(id: 0, texte: "", createur: "")]
+    return [Post(id: 0, texte: "", createur: "", commentaires: [])]
 }
 
 struct Form_Previews: PreviewProvider {

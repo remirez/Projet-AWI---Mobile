@@ -12,4 +12,5 @@ struct Post : Identifiable{
     var id: Int
     var texte : String
     var createur : String
+    var commentaires : [String]
 }
