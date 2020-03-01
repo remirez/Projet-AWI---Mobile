@@ -15,7 +15,7 @@ struct AppView: View {
             if (self.appState.isConnected) {
                PagePrincipaleView()
             }else{
-                ConnexionView()
+                AcceuilView()
             }
         }
     }

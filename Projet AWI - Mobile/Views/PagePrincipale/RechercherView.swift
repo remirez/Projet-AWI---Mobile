@@ -37,7 +37,7 @@ struct RechercherView: View {
             TextField("Rechercher", text: $rechercher).padding(.horizontal, 20.0).frame(height: 40)
         }.tabItem{
                 VStack{
-                    Image(systemName: "magnifyingglass")
+                    Image(systemName: "magnifyingglass").font(.system(size: 25))
                 }
         }
     }

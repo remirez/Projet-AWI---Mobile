@@ -193,6 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				610404502406F89E00D17007 /* Post.swift */,
+				61B4ADDD240AD00F0080DC1E /* commentaire.json */,
+				61B4ADDE240AD00F0080DC1E /* post.json */,
+				61B4ADDC240AD00E0080DC1E /* utilisateur.json */,
 				61D07096240964B60087C4D4 /* AppState.swift */,
 				611C8A76240BC4E7004AB1FF /* Utilisateur.swift */,
 			);
@@ -202,9 +205,6 @@
 		610404522407166300D17007 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				61B4ADDD240AD00F0080DC1E /* commentaire.json */,
-				61B4ADDE240AD00F0080DC1E /* post.json */,
-				61B4ADDC240AD00E0080DC1E /* utilisateur.json */,
 				104D8033240573AF00001437 /* AppView.swift */,
 				610404532407167300D17007 /* Commentaire */,
 				6104044A2406EFEB00D17007 /* PagePrincipale */,

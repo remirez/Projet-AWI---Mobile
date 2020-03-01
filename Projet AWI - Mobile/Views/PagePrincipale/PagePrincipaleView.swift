@@ -12,7 +12,11 @@ struct PagePrincipaleView: View {
     @EnvironmentObject var appState : AppState
     var body: some View {
         TabView {
-            AcceuilView(posts: self.appState.posts).tag(1)
+            AcceuilView().tabItem{
+                    VStack{
+                        Image(systemName: "house").font(.system(size: 25))
+                    }
+            }.tag(1)
             
             RechercherView(posts: self.appState.posts, rechercher: "").tag(2)
             

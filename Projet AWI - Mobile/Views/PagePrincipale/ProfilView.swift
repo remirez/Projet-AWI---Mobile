@@ -46,7 +46,7 @@ struct ProfilView: View {
         }.padding(.horizontal, 20)
             }.tabItem{
             VStack{
-                Image(systemName: "person.crop.circle")
+                Image(systemName: "person.crop.circle").font(.system(size: 25))
             }
         }
     }

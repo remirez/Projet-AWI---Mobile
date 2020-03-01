@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ConnexionView: View {
     var body: some View {
-        NavigationView{
+        
             VStack{
                 LogoView(bottom: 30)
+                    .padding(.top, 70.0)
                 FormView(pseudo: "", mdp: "",topButton: 20)
             }
-        }
     }
 }
 /*

@@ -18,6 +18,7 @@ struct InscriptionView: View {
     var body: some View {
         VStack{
             LogoView(bottom: 30)
+                .padding(.top, 70.0)
             VStack{
                 VStack(alignment: .leading, spacing: 10.0){
                     Text("Pseudo")
