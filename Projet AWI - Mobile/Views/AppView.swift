@@ -8,21 +8,21 @@
 
 import SwiftUI
 
-struct App: View {
-    
+struct AppView: View {
+    @EnvironmentObject var appState : AppState
     var body: some View {
-        NavigationView{
-            VStack{
-                Logo(bottom: 30)
-                Form(pseudo: "", mdp: "", topButton: 20)
+        HStack{
+            if (self.appState.isConnected) {
+               PagePrincipaleView()
+            }else{
+                ConnexionView()
             }
         }
-        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        App()
+        AppView()
     }
 }

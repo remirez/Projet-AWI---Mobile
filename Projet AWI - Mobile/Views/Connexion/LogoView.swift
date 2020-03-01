@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-struct Logo: View {
-    
+struct LogoView: View {
     var bottom : CGFloat
     var body: some View {
         VStack{
@@ -19,14 +18,16 @@ struct Logo: View {
                     .frame(width: 90, height: 90)
                     .cornerRadius(30)
                 
-                Text("Our Application")
+                    Text("Our Application")
+                
             }.padding(.bottom, bottom)
         }
     }
 }
-
-struct Logo_Previews: PreviewProvider {
+/*
+struct LogoView_Previews: PreviewProvider {
     static var previews: some View {
-        Logo(bottom: 30)
+        LogoView(bottom: 30)
     }
 }
+*/
