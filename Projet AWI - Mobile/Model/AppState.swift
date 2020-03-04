@@ -11,7 +11,7 @@ import Foundation
 class AppState : ObservableObject {
     @Published var isConnected : Bool = false
     @Published var posts : [Post] = []
-    @Published var utilisateur = Utilisateur(token: "", data: Data(_id: "", pseudo: "", email: ""))
+    @Published var utilisateur = Utilisateur(token: "", data: Data(_id: "", pseudo: "", email: ""), message : "")
     @Published var modifierUtilisateur : Bool = false
     
     func configureState(isConnected : Bool){
@@ -63,24 +63,22 @@ class AppState : ObservableObject {
      }
     
     func getUtilisateur(_ pseudo: String, _ mdp : String){
-        
         let url = URL(string: "http://project-awi-api.herokuapp.com/auth")!
         
         let body : [String : String] = ["pseudo" : pseudo, "mdp" : mdp]
         print(body)
         let finalBody = try! JSONSerialization.data(withJSONObject: body)
-        
         var request = URLRequest(url: url)
         request.httpBody = finalBody
         request.httpMethod = "POST"
-        request.setValue("", forHTTPHeaderField: "")
+        request.setValue("application/json", forHTTPHeaderField: "Content-type")
         
         URLSession.shared.dataTask(with: request){data,_,_  in
             if let data = data {
                 print(data)
                 if let utilisateur = try? JSONDecoder().decode(Utilisateur.self, from: data) {
                    DispatchQueue.main.async {
-                         print(utilisateur)
+                        self.utilisateur = utilisateur
                     }
                         return
                 }else{

@@ -16,7 +16,7 @@ struct RechercherView: View {
     var postToPrint : [Post]{
         get{
             return posts.filter({
-                return $0.texte.contains(self.rechercher)
+                return $0.texte.lowercased().contains(self.rechercher.lowercased()) || $0.createur.pseudo.lowercased().contains(self.rechercher.lowercased())
             })
         }
     }
@@ -33,7 +33,7 @@ struct RechercherView: View {
                         Spacer()
                     }.navigationBarTitle("Recherche")
                 }else{
-                    ListPostView(title: "Recherche")
+                    ListPostView(title: "Recherche", rech: true, posts: postToPrint)
                 }
             }
             TextField("Rechercher", text: $rechercher)

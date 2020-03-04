@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ListPostView: View {
     @EnvironmentObject var appState : AppState
-    /*var postsToPrint : [Post] {
+    var postsToPrint : [Post] {
         get {
             if (rech) {
                 return self.posts
@@ -18,14 +18,14 @@ struct ListPostView: View {
                 return self.appState.posts
             }
         }
-    }*/
+    }
     var title : String
-    //var rech : Bool
-    //var posts : [Post]
+    var rech : Bool
+    var posts : [Post]
     
     var body: some View {
         List{
-            ForEach(appState.posts) { post in
+            ForEach(postsToPrint) { post in
                 PostView(post: post, comment: false).padding(.top, 10)
                 }
                 Spacer()

@@ -36,19 +36,19 @@ struct Acceuil: View {
     
     var body: some View {
         NavigationView{
-            ListPostView(title: "Our App")
+            ListPostView(title: "Our App", rech: false, posts: [])
                 .navigationBarTitle("Our App", displayMode: mode)
                 .navigationBarItems(trailing:
                 VStack{
                 if (!self.appState.isConnected){
                     NavigationLink(destination: ConnexionView(), label: {
-                        Image(systemName: "pencil").font(.system(size: 25))
+                        Image(systemName: "power").font(.system(size: 25)).foregroundColor(Color.blue)
                     })
                 }else{
                     Button(action: {
                         self.appState.isConnected.toggle()
                     }) {
-                        Image(systemName: "house").font(.system(size: 25))
+                        Image(systemName: "power").font(.system(size: 25)).foregroundColor(Color.red)
                     }
                 }
             })

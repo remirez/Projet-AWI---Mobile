@@ -11,6 +11,7 @@ import SwiftUI
 struct Utilisateur : Codable {
     var token : String
     var data : Data
+    var message : String
 //    var id : String{
 //        get{
 //            return data._id
