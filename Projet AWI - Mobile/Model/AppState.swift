@@ -11,7 +11,7 @@ import Foundation
 class AppState : ObservableObject {
     @Published var isConnected : Bool = false
     @Published var posts : [Post] = []
-    @Published var utilisateur = Utilisateur(token: "", data: Data(_id: "", pseudo: "", email: ""), message : "")
+    @Published var utilisateur = Utilisateur(token: "", data: Data(_id: "", pseudo: "", email: ""))
     @Published var modifierUtilisateur : Bool = false
     
     func configureState(isConnected : Bool){
@@ -68,6 +68,13 @@ class AppState : ObservableObject {
         let body : [String : String] = ["pseudo" : pseudo, "mdp" : mdp]
         print(body)
         let finalBody = try! JSONSerialization.data(withJSONObject: body)
+        
+        // Créer un fichier JSON
+//        if let file = FileHandle(forWritingAtPath: ){
+//            file.write(finalBody)
+//        }
+        
+        
         var request = URLRequest(url: url)
         request.httpBody = finalBody
         request.httpMethod = "POST"
