@@ -9,29 +9,27 @@
 import SwiftUI
 
 struct CommentaireView: View {
+    @EnvironmentObject var appState : AppState
     @State var post: Post
     @State var commentaire : String
     var body: some View {
-        VStack{
-            ScrollView(.vertical, showsIndicators: true){
-                PostView(post: post, com: true)
-                ForEach(self.post.commentaires){commentaire in
-                    PostView(post: commentaire, com: true)
-                }
-                Spacer()
+            List{
+                PostView(post: post, comment: true)
+                // Ici il faut afficher les commentaires en les récupérant de la base de données
                 HStack{
                     TextField("Commenter", text: self.$commentaire)
-                        .frame(height: 40.0)
+                        .padding(20)
+                            .frame(height: 40.0)
+                            .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                        .cornerRadius(10)
                     Button(action: {
                         // A coder la logique
                     }){
                         Image(systemName: "tray.and.arrow.up.fill")
-                            .frame(height: 30.0)
+                            .font(.system(size: 25))
                     }
-                }.padding(.bottom, 15.0)
+                }.padding(.vertical, 15.0)
             }
-        }
-        .padding(.horizontal, 20.0)
     }
 }
 

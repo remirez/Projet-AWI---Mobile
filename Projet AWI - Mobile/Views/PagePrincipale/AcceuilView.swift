@@ -23,6 +23,7 @@ struct AcceuilView: View {
 
 struct Acceuil: View {
     @EnvironmentObject var appState : AppState
+    
     var mode : NavigationBarItem.TitleDisplayMode {
         get {
             if (self.appState.isConnected){
@@ -32,9 +33,11 @@ struct Acceuil: View {
             }
         }
     }
+    
     var body: some View {
         NavigationView{
-            ListPostView(posts: self.appState.posts!, title: "Our App").navigationBarTitle("Our App", displayMode: mode)
+            ListPostView(title: "Our App")
+                .navigationBarTitle("Our App", displayMode: mode)
                 .navigationBarItems(trailing:
                 VStack{
                 if (!self.appState.isConnected){
@@ -51,8 +54,10 @@ struct Acceuil: View {
             })
         }
         
-        
     }
+    
+       
+       
 }
 /*
 struct AcceuilView_Previews: PreviewProvider {

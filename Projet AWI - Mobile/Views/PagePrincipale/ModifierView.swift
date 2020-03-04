@@ -15,6 +15,7 @@ struct ModifierView: View {
     @State var mdp : String
     @State var amdp : String
     @State var cmdp : String
+    @State var value : CGFloat = 0
     
     var body: some View {
         VStack{
@@ -24,7 +25,10 @@ struct ModifierView: View {
                     .font(.title)
                     .fontWeight(.medium)
                 TextField("Entrer votre pseudo", text: self.$pseudo)
-                    .frame(height: 40.0)
+                    .padding(20)
+                        .frame(height: 40.0)
+                        .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                    .cornerRadius(10)
                 
             }.padding(.bottom)
             
@@ -33,37 +37,50 @@ struct ModifierView: View {
                 .font(.title)
                 .fontWeight(.medium)
                 TextField("Entrer votre e-mail", text: self.$email)
-                    .frame(height: 40.0)
+                    .padding(20)
+                        .frame(height: 40.0)
+                        .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                    .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 10){
                 Text("Ancien mot de passe")
                 .font(.title)
                 .fontWeight(.medium)
                 SecureField("Entrer votre mot de passe", text: self.$amdp)
-                    .frame(height: 40.0)
+                    .padding(20)
+                        .frame(height: 40.0)
+                        .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                    .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 10){
                 Text("Nouveau mot de passe")
                 .font(.title)
                 .fontWeight(.medium)
                 SecureField("Entrer votre mot de passe", text: self.$mdp)
-                    .frame(height: 40.0)
+                    .padding(20)
+                        .frame(height: 40.0)
+                        .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                    .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 10){
                 Text("Retaper votre mot de passe")
                 .font(.title)
                 .fontWeight(.medium)
                 SecureField("Entrer votre mot de passe", text: self.$cmdp )
-                    .frame(height: 40.0)
+                    .padding(20)
+                        .frame(height: 40.0)
+                        .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                    .cornerRadius(10)
             }
         }.padding(.bottom, 10)
+            
         Button(action: {
-            print(self.amdp == self.appState.utilisateur.mdp && self.mdp == self.cmdp)
+            print(self.amdp == self.appState.utilisateur.data.mdp && self.mdp == self.cmdp)
             print(self.amdp, self.mdp, self.cmdp)
-            if(self.amdp == self.appState.utilisateur.mdp && self.mdp == self.cmdp){
-                self.appState.utilisateur.pseudo = self.pseudo
-                self.appState.utilisateur.mdp = self.mdp
-                self.appState.utilisateur.email = self.email
+            if(self.amdp == self.appState.utilisateur.data.mdp && self.mdp == self.cmdp){
+                self.appState.utilisateur.data.pseudo = self.pseudo
+                self.appState.utilisateur.data.mdp = self.mdp
+                self.appState.utilisateur.data.email = self.email
                 
                 
                 self.appState.modifierUtilisateur.toggle()

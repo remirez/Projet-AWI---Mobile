@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct RechercherView: View {
-    var posts :[Post]
+    
+    var posts : [Post]
     @State var rechercher :  String
-    var postToPrint :[Post] {
+    @State var value : CGFloat = 0
+    var postToPrint : [Post]{
         get{
             return posts.filter({
                 return $0.texte.contains(self.rechercher)
@@ -31,10 +33,27 @@ struct RechercherView: View {
                         Spacer()
                     }.navigationBarTitle("Recherche")
                 }else{
-                    ListPostView(posts: postToPrint, title: "Recherche")
+                    ListPostView(title: "Recherche")
                 }
             }
-            TextField("Rechercher", text: $rechercher).padding(.horizontal, 20.0).frame(height: 40)
+            TextField("Rechercher", text: $rechercher)
+                .padding(.horizontal, 20.0)
+                .frame(height: 40)
+                .background(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1))
+                .cornerRadius(10)
+                .offset(y: -self.value)
+                .onAppear{
+                    NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main){ noti in
+                        let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                        let height = value.height
+                        self.value = height
+                    }
+                    
+                    NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main){ noti in
+                        self.value = 0
+                    }
+            }
+            
         }.tabItem{
                 VStack{
                     Image(systemName: "magnifyingglass").font(.system(size: 25))

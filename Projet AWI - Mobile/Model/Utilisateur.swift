@@ -8,16 +8,19 @@
 
 import SwiftUI
 
-class Utilisateur /* : Codable */{
-    var pseudo : String!
-    var email : String!
-    var mdp : String!
-    var _id : Id!
-    
-    init(pseudo: String, email: String, mdp: String, _id: Id) {
-        self.pseudo = pseudo
-        self.email = email
-        self.mdp =  mdp
-        self._id = _id
-    }
+struct Utilisateur : Codable {
+    var token : String
+    var data : Data
+//    var id : String{
+//        get{
+//            return data._id
+//        }
+//    }
+}
+
+struct Data : Codable {
+    var _id : String
+    var pseudo : String
+    var mdp : String
+    var email : String
 }

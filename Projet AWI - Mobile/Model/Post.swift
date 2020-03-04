@@ -8,32 +8,16 @@
 
 import Foundation
 
-struct Id : Codable {
-    var id : String
+struct Post : Identifiable, Codable {
     
-    private enum Code : String, CodingKey {
-        case id = "$oid"
-    }
-}
-
-struct Post : Identifiable /*, Codable */{
-    /*
     var id : String {   // Pour Identifiable
         get {
-            return _id.id
+            return _id 
         }
     }
-    
-    var reactions : [Id]
-    var _id: Id
-    var texte : String
-    var createur : Id
-    var commentaires : [Id]
-    */
-    // For test
-    var id : Int
+    var reactions : [String]
+    var _id: String
     var texte : String
     var createur : String
-    var commentaires : [Post]
     
 }

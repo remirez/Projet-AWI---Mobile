@@ -11,7 +11,8 @@ import SwiftUI
 struct PostView: View {
     @EnvironmentObject var appState : AppState
     var post : Post
-    var com : Bool
+    @State var com : Bool = false
+    var comment : Bool
     var imgGauche : Bool{
         get{
             // Ici on doit coder la logique pour afficher l'image à gauche ou à droite
@@ -24,35 +25,45 @@ struct PostView: View {
             return false
         }
     }
+    
     var body: some View {
         VStack{
            HStack(alignment: .top){
                 if (imgGauche){
                     Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
                 }
-                Text("Moundi Mazou Garirajhkjqshdkjhqskjhdkqljshdkqjhqsjdhlqksjhdlkqjshdkjqshdlkqsjhdklqjshdkqjshdklqsjhdkqlsjhdkqlsjhdkjqshdjkqs    \(post.texte) ")
+            Text("Moundi Mazou Garirajhkjqshdkjhqskjhdkqljshdkqjhqsjdhlqksjhdlkqjshdkjqshdlkqsjhdklqjshdkqjshdklqsjhdkqlsjhdkqlsjhdkjqshdjkqs    \(post.texte) ")
                 if (imgDroite){
                     Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
                 }
-            }
+            }.shadow(radius: 1,y:1)
             
             if(self.appState.isConnected){
                 HStack(){
                     Spacer()
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Image(systemName: "hand.thumbsup")
+                        Image(systemName: "hand.thumbsup").foregroundColor(Color.blue)
+                    }.onTapGesture {
+                        print("J'aime")
                     }
                     Spacer()
                     
-                    if(!self.com){
-                        NavigationLink(destination: CommentaireView(post: post, commentaire: "")){
-                            Image(systemName: "message.circle")
-                        }
+                    if(!comment){
+                        Button(action: {
+                            self.com = true
+                        }){
+                            Image(systemName: "message.circle").foregroundColor(Color.blue)
+                        }.sheet(isPresented: self.$com , onDismiss: {
+                            self.com = false
+                        }, content: {
+                            CommentaireView(post: self.post, commentaire: "").environmentObject(self.appState)
+                        })
                     }
-                    
                     Spacer()
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Image(systemName: "exclamationmark.triangle")
+                        Image(systemName: "exclamationmark.triangle").foregroundColor(Color.blue)
+                    }.onTapGesture {
+                        print("Signaler")
                     }
                     Spacer()
                 }

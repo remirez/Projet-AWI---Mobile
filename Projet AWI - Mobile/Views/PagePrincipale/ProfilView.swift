@@ -31,8 +31,8 @@ struct ProfilView: View {
                             .fontWeight(.medium)
                     }
                     VStack(alignment: .leading, spacing: 20.0){
-                        Text(self.appState.utilisateur!.pseudo).font(.title).fontWeight(.regular)
-                        Text(self.appState.utilisateur!.email).font(.title).fontWeight(.regular)
+                        Text(self.appState.utilisateur.data.pseudo).font(.title).fontWeight(.regular)
+                        Text(self.appState.utilisateur.data.email).font(.title).fontWeight(.regular)
                     }
                 }.padding(.vertical, 20.0)
                 Button(action: {
@@ -40,7 +40,9 @@ struct ProfilView: View {
                 }){ Text("Modifier").foregroundColor(Color.white).padding(15.0).frame(width: 150, height: 40.0).background(Color.green).cornerRadius(20)
                 }
             }else{
-                ModifierView(email: self.appState.utilisateur.email, pseudo: self.appState.utilisateur.pseudo, mdp: "", amdp: "", cmdp: "")
+                ScrollView(.vertical){
+                    ModifierView(email: self.appState.utilisateur.data.email, pseudo: self.appState.utilisateur.data.pseudo, mdp: "", amdp: "", cmdp: "")
+                }
             }
             Spacer().navigationBarTitle("Profil")
         }.padding(.horizontal, 20)

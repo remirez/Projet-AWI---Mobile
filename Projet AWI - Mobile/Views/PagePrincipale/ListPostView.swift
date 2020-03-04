@@ -9,19 +9,27 @@
 import SwiftUI
 
 struct ListPostView: View {
-    var posts : [Post]
+    @EnvironmentObject var appState : AppState
+    /*var postsToPrint : [Post] {
+        get {
+            if (rech) {
+                return self.posts
+            }else{
+                return self.appState.posts
+            }
+        }
+    }*/
     var title : String
+    //var rech : Bool
+    //var posts : [Post]
     
     var body: some View {
-       
-            ScrollView(.vertical, showsIndicators: true){
-                
-                ForEach(posts) { post in
-                        PostView(post: post, com: false).padding(.top, 10)
-                    }
-                    Spacer()
-                }.padding(.horizontal, 10).navigationBarTitle(title)
-                
+        List{
+            ForEach(appState.posts) { post in
+                PostView(post: post, comment: false).padding(.top, 10)
+                }
+                Spacer()
+            }.padding(.horizontal, 10).navigationBarTitle(title)
      }
 }
 
