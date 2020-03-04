@@ -18,6 +18,11 @@ struct Post : Identifiable, Codable {
     var reactions : [String]
     var _id: String
     var texte : String
-    var createur : String
+    var createur : Createur
     
+}
+
+struct Createur : Codable {
+    var _id : String
+    var pseudo : String
 }

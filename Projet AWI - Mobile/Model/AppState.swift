@@ -11,7 +11,7 @@ import Foundation
 class AppState : ObservableObject {
     @Published var isConnected : Bool = false
     @Published var posts : [Post] = []
-    @Published var utilisateur = Utilisateur(token: "", data: Data(_id: "", pseudo: "", mdp: "", email: ""))
+    @Published var utilisateur = Utilisateur(token: "", data: Data(_id: "", pseudo: "", email: ""))
     @Published var modifierUtilisateur : Bool = false
     
     func configureState(isConnected : Bool){

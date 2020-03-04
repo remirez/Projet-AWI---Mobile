@@ -32,11 +32,15 @@ struct PostView: View {
                 if (imgGauche){
                     Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
                 }
-            Text("Moundi Mazou Garirajhkjqshdkjhqskjhdkqljshdkqjhqsjdhlqksjhdlkqjshdkjqshdlkqsjhdklqjshdkqjshdklqsjhdkqlsjhdkqlsjhdkjqshdjkqs    \(post.texte) ")
-                if (imgDroite){
-                    Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
-                }
-            }.shadow(radius: 1,y:1)
+            VStack(alignment: .leading){
+                Text(post.createur.pseudo).bold()
+                Text("Moundi Mazou Garirajhkjqshdkjhqskjhdkqljshdkqjhqsjdhlqksjhdlkqjshdkjqshdlkqsjhdklqjshdkqjshdklqsjhdkqlsjhdkqlsjhdkjqshdjkqs    \(post.texte) ")
+                    if (imgDroite){
+                        Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
+                    }
+                }.shadow(radius: 1,y:1)
+            }
+            
             
             if(self.appState.isConnected){
                 HStack(){

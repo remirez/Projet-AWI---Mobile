@@ -42,7 +42,7 @@ struct FormView: View {
             
                 Button(action: {
                     self.verifierInfo(pseudo: self.pseudo, mdp: self.mdp)
-                   // self.appState.isConnected = true
+                    self.appState.isConnected = true
                 }) {
                     Text("Se connecter").foregroundColor(Color.white).padding(30.0)
                     .frame(height: 50.0).background(Color.green).cornerRadius(20)

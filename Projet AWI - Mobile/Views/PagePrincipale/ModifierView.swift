@@ -75,20 +75,21 @@ struct ModifierView: View {
         }.padding(.bottom, 10)
             
         Button(action: {
-            print(self.amdp == self.appState.utilisateur.data.mdp && self.mdp == self.cmdp)
+            
+//            print(self.amdp == self.appState.utilisateur.data.mdp && self.mdp == self.cmdp)
             print(self.amdp, self.mdp, self.cmdp)
-            if(self.amdp == self.appState.utilisateur.data.mdp && self.mdp == self.cmdp){
+//            if(self.amdp == self.appState.utilisateur.data.mdp && self.mdp == self.cmdp){
                 self.appState.utilisateur.data.pseudo = self.pseudo
-                self.appState.utilisateur.data.mdp = self.mdp
+            // self.appState.utilisateur.data.mdp = self.mdp
                 self.appState.utilisateur.data.email = self.email
                 
                 
                 self.appState.modifierUtilisateur.toggle()
-            }
         }){ Text("Confirmer").foregroundColor(Color.white).padding(15.0).frame(width: 150.0, height: 40.0).background(Color.red).cornerRadius(20)
         }
     }
-    }
+        
+}
 
 }
 

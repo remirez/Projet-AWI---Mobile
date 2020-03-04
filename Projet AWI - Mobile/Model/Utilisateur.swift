@@ -21,6 +21,5 @@ struct Utilisateur : Codable {
 struct Data : Codable {
     var _id : String
     var pseudo : String
-    var mdp : String
     var email : String
 }
