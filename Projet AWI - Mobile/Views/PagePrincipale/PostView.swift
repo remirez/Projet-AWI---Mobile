@@ -25,22 +25,32 @@ struct PostView: View {
             return false
         }
     }
-    
+    var mode : HorizontalAlignment {
+        get{
+            if (imgGauche){
+                return .leading
+            }else {
+                return .trailing
+            }
+        }
+    }
     var body: some View {
-        VStack{
-           HStack(alignment: .top){
+        VStack(alignment : mode){
+            HStack(alignment: .top){
                 if (imgGauche){
                     Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
                 }
-            VStack(alignment: .leading){
-                Text(post.createur.pseudo).bold()
-                Text("Moundi Mazou Garirajhkjqshdkjhqskjhdkqljshdkqjhqsjdhlqksjhdlkqjshdkjqshdlkqsjhdklqjshdkqjshdklqsjhdkqlsjhdkqlsjhdkjqshdjkqs    \(post.texte) ")
-                    if (imgDroite){
-                        Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
-                    }
+                if (imgDroite){
+                    Spacer()
+                }
+                VStack(alignment: mode){
+                    Text(post.createur.pseudo).bold()
+                    Text(post.texte)
                 }.shadow(radius: 1,y:1)
+                if (imgDroite){
+                    Image("Flame").resizable().frame(width: 40.0, height: 40.0).cornerRadius(10)
+                }
             }
-            
             
             if(self.appState.isConnected){
                 HStack(){

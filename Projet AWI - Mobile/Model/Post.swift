@@ -15,14 +15,14 @@ struct Post : Identifiable, Codable {
             return _id 
         }
     }
-    var reactions : [String]
-    var _id: String
-    var texte : String
+    var reactions : [String] = []
+    var _id: String = ""
+    var texte : String = ""
     var createur : Createur
     
 }
 
 struct Createur : Codable {
-    var _id : String
-    var pseudo : String
+    var _id : String = ""
+    var pseudo : String = ""
 }

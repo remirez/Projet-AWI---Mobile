@@ -76,8 +76,8 @@ struct BoutonEcrirePost : View {
             }
             VStack{
                 if(details){
-                    OneButton(image: "plus.circle.fill")
-                    OneButton(image: "plus.circle.fill")
+                    OneButton(image: "plus.circle.fill", postBouton: false)
+                    // OneButton(image: "plus.circle.fill", postBouton: false)
                 }
                 Button(action: {
                     withAnimation{
@@ -91,7 +91,6 @@ struct BoutonEcrirePost : View {
                         Image(systemName: "plus.circle.fill").resizable()
                         .frame(width: 50, height: 50)
                     }
-                    
                 })
             }
             
@@ -103,6 +102,8 @@ struct BoutonEcrirePost : View {
 
 struct OneButton : View {
     var image : String
+    @State var postBouton : Bool
+    
     var body : some View{
         ZStack{
         Circle()
@@ -110,11 +111,16 @@ struct OneButton : View {
             .frame(width: 40, height: 40)
             
             Button(action: {
-                
+                self.postBouton = true
             }, label: {
                 Image(systemName: image).resizable()
                     .frame(width: 40, height: 40)
-            })
+            }).sheet(isPresented: self.$postBouton
+                ,onDismiss: {
+                    self.postBouton = false
+                }, content: {
+                    EcrirePostView(texte: "", postBouton: self.$postBouton)
+                })
         }.transition(.move(edge: .trailing))
     }
 }
